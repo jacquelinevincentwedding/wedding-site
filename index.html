@@ -65,7 +65,7 @@ a:hover { text-decoration-thickness: 2px; }
 [tabindex="-1"]:focus { outline: none; }
 [hidden] { display: none !important; }
 
-.wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--gutter); }
+.wrap { width: 100%; max-width: 1040px; margin-inline: auto; padding-inline: var(--gutter); }
 
 .skip {
   position: absolute; left: var(--gutter); top: -200px; z-index: 20;
@@ -106,10 +106,10 @@ a:hover { text-decoration-thickness: 2px; }
 .names .l2 { text-align: right; }
 .when { margin-top: 24px; font-size: 1.125rem; line-height: 1.45; color: var(--ink-2); }
 @media (min-width: 760px) {
-  .names { font-size: clamp(3.06rem, 6.65vw, 5.03rem); line-height: 1.25; }
+  .names { font-size: clamp(3.06rem, 6.65vw, 4.25rem); line-height: 1.25; }
 }
 
-.hero-photo { max-width: 1680px; margin-inline: auto; }
+.hero-photo { max-width: calc(1040px - 2 * var(--gutter)); margin-inline: auto; margin-bottom: clamp(20px, 3vw, 32px); }
 .hero-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 55% 50%; }
 @media (min-width: 760px) {
   .hero-photo img { aspect-ratio: 16 / 9; object-position: 50% 100%; }
@@ -125,7 +125,7 @@ a:hover { text-decoration-thickness: 2px; }
 .schedule .section-title { text-align: center; }
 .days { list-style: none; margin: 0 auto; padding: 0; max-width: 720px; }
 .day { display: grid; gap: 14px; padding-block: 28px 32px; border-top: 1px solid var(--rule); text-align: center; }
-.day-name { display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; }
+.day-name { display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .dow { font-family: var(--serif); font-style: italic; font-size: clamp(1.75rem, 3.4vw, 2.5rem); line-height: 1.1; }
 .date { color: var(--ink-2); }
 .event h3 { font-size: clamp(1.625rem, 3vw, 2.25rem); line-height: 1.15; margin-bottom: 14px; }
@@ -169,6 +169,9 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .hotel .book { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .hotel .note { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--on-deep); }
+.stay-icon { display: flex; justify-content: center; margin-top: clamp(28px, 4vw, 44px); color: var(--on-deep); }
+.stay-icon svg { width: 64px; height: 64px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.stay-icon + .hotels { margin-top: clamp(18px, 3vw, 28px); }
 .hotel h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.2; }
 .hotel .addr { margin-bottom: 14px; }
 .hotel .addr a { color: var(--on-deep-2); }
@@ -199,7 +202,7 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .foot-date { color: var(--ink-2); }
 /* Every page's main section uses the Where to stay green; the menu and footer keep the darker green */
-main { background: var(--deep); --rule: var(--on-deep-rule); }
+main { display: flow-root; background: var(--deep); --rule: var(--on-deep-rule); }
 
 /* One load moment: the names settle in */
 @media (prefers-reduced-motion: no-preference) {
@@ -300,6 +303,9 @@ main { background: var(--deep); --rule: var(--on-deep-rule); }
       <div class="wrap">
         <h2 id="stay-title" class="section-title">Where to stay</h2>
         <p class="intro">To ensure a comfortable stay, we have curated a selection of recommended hotels for your convenience. Additional accommodations like Airbnb are also available throughout the Coconut Grove and Coral Gables areas. Please be mindful that local traffic in Coconut Grove can occasionally be heavy, so we recommend allowing extra time for travel.</p>
+        <div class="stay-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" focusable="false"><path d="M14 50V26a18 18 0 0 1 36 0v24M32 8V5M29 5h6M11 50h42"/><circle cx="15.5" cy="53.6" r="2.3"/><circle cx="48.5" cy="53.6" r="2.3"/><rect x="18" y="27" width="13" height="23" rx="1"/><path d="M21.5 27v-3.5h6V27M18 31.2h13M18 33.6h13"/><rect x="33.5" y="38" width="12" height="12" rx="1"/><path d="M37 38v-2.6h5V38"/></svg>
+        </div>
         <ul class="hotels">
           <li class="hotel">
             <h3>Mayfair House Hotel &amp; Garden</h3>
@@ -319,10 +325,16 @@ main { background: var(--deep); --rule: var(--on-deep-rule); }
           <li class="hotel">
             <h3>Mr. C Miami – Coconut Grove</h3>
             <p class="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mr.+C+Miami+Coconut+Grove%2C+2988+McFarlane+Road%2C+Miami%2C+FL+33133" target="_blank" rel="noopener">2988 McFarlane Road, Miami, FL 33133</a></p>
+            <div class="book">
+              <a class="btn" href="https://www.mrchotels.com/hotels/coconut-grove" target="_blank" rel="noopener">Click here to view website</a>
+            </div>
           </li>
           <li class="hotel">
             <h3>The Ritz-Carlton Coconut Grove, Miami</h3>
             <p class="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=The+Ritz-Carlton+Coconut+Grove%2C+3300+Southwest+27th+Avenue%2C+Miami%2C+FL+33133" target="_blank" rel="noopener">3300 Southwest 27th Avenue, Miami, FL 33133</a></p>
+            <div class="book">
+              <a class="btn" href="https://www.ritzcarlton.com/en/hotels/miarz-the-ritz-carlton-coconut-grove-miami/overview/" target="_blank" rel="noopener">Click here to view website</a>
+            </div>
           </li>
         </ul>
       </div>
