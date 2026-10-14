@@ -100,12 +100,13 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* Masthead */
 .masthead { padding-block: var(--page-top) clamp(28px, 5vw, 56px); }
-.names { font-family: var(--script); font-size: clamp(1.75rem, 9.2vw, 3.5rem); line-height: 1.3; letter-spacing: 0; }
-.names > span { display: block; }
+.names { font-family: var(--script); font-size: clamp(1.53rem, 8.05vw, 3.06rem); line-height: 1.3; letter-spacing: 0; padding-inline: 0.35em; }
+/* Each name line's box reaches past the script's swashes so no browser can crop the J or the final i */
+.names > span { display: block; padding-inline: 0.45em; margin-inline: -0.45em; }
 .names .l2 { text-align: right; }
 .when { margin-top: 24px; font-size: 1.125rem; line-height: 1.45; color: var(--ink-2); }
 @media (min-width: 760px) {
-  .names { font-size: clamp(3.5rem, 7.6vw, 5.75rem); line-height: 1.25; }
+  .names { font-size: clamp(3.06rem, 6.65vw, 5.03rem); line-height: 1.25; }
 }
 
 .hero-photo { max-width: 1680px; margin-inline: auto; }
@@ -167,7 +168,7 @@ a:hover { text-decoration-thickness: 2px; }
   padding-block: 24px 32px; border-top: 1px solid var(--on-deep-rule);
 }
 .hotel .book { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.hotel .note { font-family: var(--serif); font-style: italic; font-size: 1.125rem; color: var(--on-deep); }
+.hotel .note { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--on-deep); }
 .hotel h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.2; }
 .hotel .addr { margin-bottom: 14px; }
 .hotel .addr a { color: var(--on-deep-2); }
@@ -202,8 +203,7 @@ main { background: var(--deep); --rule: var(--on-deep-rule); }
 
 /* One load moment: the names settle in */
 @media (prefers-reduced-motion: no-preference) {
-  .names > span, .when { animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-  .names .l2 { animation-delay: 120ms; }
+  .when { animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   .when { animation-delay: 280ms; }
   @keyframes rise {
     from { opacity: 0; transform: translateY(0.3em); }
@@ -299,13 +299,13 @@ main { background: var(--deep); --rule: var(--on-deep-rule); }
     <section class="stay" aria-labelledby="stay-title">
       <div class="wrap">
         <h2 id="stay-title" class="section-title">Where to stay</h2>
-        <p class="intro">To ensure a comfortable stay, we have curated a selection of recommended hotels for your convenience. Additional accommodations like Airbnb are also available throughout the nearby Coconut Grove and Coral Gables areas. Please be mindful that local traffic in Coconut Grove can occasionally be heavy, so we recommend allowing extra time for travel.</p>
+        <p class="intro">To ensure a comfortable stay, we have curated a selection of recommended hotels for your convenience. Additional accommodations like Airbnb are also available throughout the Coconut Grove and Coral Gables areas. Please be mindful that local traffic in Coconut Grove can occasionally be heavy, so we recommend allowing extra time for travel.</p>
         <ul class="hotels">
           <li class="hotel">
             <h3>Mayfair House Hotel &amp; Garden</h3>
             <p class="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mayfair+House+Hotel+%26+Garden%2C+3000+Florida+Ave%2C+Miami%2C+FL+33133" target="_blank" rel="noopener">3000 Florida Avenue, Miami, FL 33133</a></p>
             <div class="book">
-              <p class="note">*Recommended Hotel</p>
+              <p class="note">*Preferred Hotel</p>
               <a class="btn" href="https://be.synxis.com/?adult=2&amp;arrive=2027-05-07&amp;chain=10237&amp;child=0&amp;currency=USD&amp;depart=2027-05-09&amp;group=5800256&amp;hotel=43490&amp;level=hotel&amp;locale=en-US&amp;productcurrency=USD&amp;rooms=1" target="_blank" rel="noopener">Book at our group rate</a>
             </div>
           </li>
