@@ -131,8 +131,11 @@ a:hover { text-decoration-thickness: 2px; }
 .event h3 { font-size: clamp(1.625rem, 3vw, 2.25rem); line-height: 1.15; margin-bottom: 14px; }
 .event p + p { margin-top: 4px; }
 .event .time { font-weight: 500; }
-.event .attire { margin-top: 16px; }
-.bowtie { display: inline-block; width: 1.45em; height: 0.72em; margin-left: 0.35em; vertical-align: -0.04em; fill: currentColor; stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
+.event .attire { margin-top: 16px; font-size: 1.0625rem; font-weight: 400; line-height: 1.6; }
+/* Icons hang just after their text so the words themselves stay exactly centred */
+.hang { position: relative; display: inline-block; }
+.hang > svg { position: absolute; left: 100%; top: 50%; transform: translateY(-50%); }
+.bowtie { width: 1.45em; height: 0.72em; margin-left: 0.35em; fill: currentColor; stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; }
 .addr a { color: var(--ink-2); }
 @media (min-width: 760px) {
   .day { padding-block: 40px 44px; }
@@ -200,8 +203,8 @@ a:hover { text-decoration-thickness: 2px; }
   display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 8px 24px;
   padding-block: 40px 56px;
 }
-.foot-date { color: var(--ink-2); font-size: 0.8125rem; display: inline-flex; align-items: center; gap: 0.45em; }
-.hearts { width: 0.95em; height: 0.84em; fill: currentColor; }
+.foot-date { color: var(--ink-2); font-size: 0.8125rem; }
+.hearts { width: 0.95em; height: 0.84em; margin-left: 0.45em; fill: currentColor; }
 /* Every page's main section uses the Where to stay green; the menu and footer keep the darker green */
 main { display: flow-root; background: var(--deep); --rule: var(--on-deep-rule); }
 
@@ -281,7 +284,7 @@ main { display: flow-root; background: var(--deep); --rule: var(--on-deep-rule);
             <p class="time">6:30 PM – 1:00 AM</p>
             <p>Vizcaya Museum and Gardens</p>
             <p class="addr"><a href="https://www.google.com/maps/search/?api=1&amp;query=Vizcaya+Museum+and+Gardens%2C+3251+S+Miami+Ave%2C+Miami%2C+FL" target="_blank" rel="noopener">3251 S Miami Ave, Miami, FL</a></p>
-            <p class="attire">Attire: Black Tie<svg class="bowtie" viewBox="0 0 24 12" aria-hidden="true" focusable="false"><path d="M1.5 1.6 10.6 6 1.5 10.4Z M22.5 1.6 13.4 6 22.5 10.4Z"/><rect x="10" y="4" width="4" height="4" rx="1.2"/></svg></p>
+            <p class="attire"><span class="hang">Attire: Black Tie<svg class="bowtie" viewBox="0 0 24 12" aria-hidden="true" focusable="false"><path d="M1.5 1.6 10.6 6 1.5 10.4Z M22.5 1.6 13.4 6 22.5 10.4Z"/><rect x="10" y="4" width="4" height="4" rx="1.2"/></svg></span></p>
           </div>
         </li>
       </ol>
@@ -367,7 +370,7 @@ main { display: flow-root; background: var(--deep); --rule: var(--on-deep-rule);
 
 <footer class="wrap">
   <div class="foot-inner">
-    <p class="foot-date">May 8, 2027<svg class="hearts" viewBox="0 0 14 12.4" aria-hidden="true" focusable="false"><path d="M7 11.91C0.62 6.98 0.91 1.18 4.1 1.06C5.72 1.01 7 2.22 7 3.5C7 2.22 8.28 1.01 9.9 1.06C13.09 1.18 13.38 6.98 7 11.91Z"/></svg></p>
+    <p class="foot-date"><span class="hang">May 8, 2027<svg class="hearts" viewBox="0 0 14 12.4" aria-hidden="true" focusable="false"><path d="M7 11.91C0.62 6.98 0.91 1.18 4.1 1.06C5.72 1.01 7 2.22 7 3.5C7 2.22 8.28 1.01 9.9 1.06C13.09 1.18 13.38 6.98 7 11.91Z"/></svg></span></p>
   </div>
 </footer>
 
